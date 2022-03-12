@@ -2,9 +2,20 @@
 
 ## rest server with express from freeCodeCamp
 
-### npm init
-### npm start
+#### npm init
+#### npm start
 
-##### served on localhost:3000/
+#### served on localhost:3000/
 
-##### methods
+#### methods
+
+##### api/getAll
+
+##### api/getOne/:id
+
+##### api/post/
+###### json body { "name" : "name", "age" : age }
+
+##### api/update/:id
+
+##### api/delete/:id
