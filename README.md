@@ -6,7 +6,7 @@
 #### npm start
 
 #### served on localhost:3000/
-###### configure mongoDB
+###### configure mongoDB (.env file)
 
 ### methods
 
