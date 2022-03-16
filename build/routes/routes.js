@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // const router = express.Router()
-const model_1 = __importDefault(require("../model/model"));
+// import  Model  from "../model/model";
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 // module.exports = router;
@@ -79,6 +79,7 @@ router.delete('/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
     try {
         const id = req.params.id;
         const data = yield model_1.default.findByIdAndDelete(id);
+        // @ts-ignore
         res.send(`Document with ${data.name} has been deleted..`);
     }
     catch (error) {
@@ -89,4 +90,5 @@ router.delete('/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
 // const Model = require('../model/model')
 // import { IModel, ISchema, AccountSchema } from "../model/model";
 // const IModell = new AccountSchema
+const model_1 = __importDefault(require("../model/model"));
 exports.default = router;

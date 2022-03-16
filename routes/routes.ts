@@ -3,7 +3,7 @@
 
 // const router = express.Router()
 
-import  Model  from "../model/model";
+// import  Model  from "../model/model";
 
 import express, { Router, Request, Response } from "express";
 
@@ -14,7 +14,7 @@ const router = Router();
 // Post method
 router.post('/post', async (req: Request,res) => {
     // res.send('Post API')
-    const data = new Model ({
+    const data = new User ({
         name: req.body.name,
         age: req.body.age
     })
@@ -32,7 +32,7 @@ router.post('/post', async (req: Request,res) => {
 // Get all method
 router.get('/getAll', async (req,res) => {
     try{
-        const data = await Model.find();
+        const data = await User.find();
         res.json(data)
     }
     catch(error){
@@ -46,7 +46,7 @@ router.get('/getOne/:id', async (req,res) => {
     // res.send('Get by ID API')
     // res.send(req.params.id)
     try{
-        const data = await Model.findById(req.params.id);
+        const data = await User.findById(req.params.id);
         res.json(data)
     }
     catch(error){
@@ -63,7 +63,7 @@ router.patch('/update/:id', async (req,res) => {
         const updatedData = req.body;
         const options = { new: true };
 
-        const result = await Model.findByIdAndUpdate(
+        const result = await User.findByIdAndUpdate(
             id, updatedData, options
         )
 
@@ -80,7 +80,8 @@ router.delete('/delete/:id', async (req,res) => {
     // res.send('Delete by ID API')
     try {
         const id = req.params.id;
-        const data = await Model.findByIdAndDelete(id)
+        const data = await User.findByIdAndDelete(id)
+        // @ts-ignore
         res.send(`Document with ${data.name} has been deleted..`)
     }
     catch (error) {
@@ -94,6 +95,8 @@ router.delete('/delete/:id', async (req,res) => {
 // import { IModel, ISchema, AccountSchema } from "../model/model";
 
 // const IModell = new AccountSchema
+
+import User, { IUser } from "../model/model";
 
 export default router;
 
