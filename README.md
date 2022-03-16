@@ -1,9 +1,9 @@
-# fccrest
+# fccrest mig to ts
 
 ## rest server with express from freeCodeCamp
 
 #### npm init
-#### npm start
+#### npm start // index.js on build folder
 
 #### served on localhost:3000/
 ###### configure mongoDB
