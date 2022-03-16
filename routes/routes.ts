@@ -3,16 +3,16 @@
 
 // const router = express.Router()
 
+import  Model  from "../model/model";
 
-
-import express, { Router } from "express";
+import express, { Router, Request, Response } from "express";
 
 const router = Router();
 
 // module.exports = router;
 
 // Post method
-router.post('/post', async (req,res) => {
+router.post('/post', async (req: Request,res) => {
     // res.send('Post API')
     const data = new Model ({
         name: req.body.name,
@@ -89,11 +89,11 @@ router.delete('/delete/:id', async (req,res) => {
     }
 })
 
-const Model = require('../model/model')
+// const Model = require('../model/model')
 
-// import dataSchema from "../model/model";
+// import { IModel, ISchema, AccountSchema } from "../model/model";
 
-// const dataSchema = new DataSchema();
+// const IModell = new AccountSchema
 
 export default router;
 

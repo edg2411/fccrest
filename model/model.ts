@@ -2,6 +2,16 @@
 
 import mongoose from "mongoose";
 
+// const AccountSchema = new mongoose.Schema;
+
+// export interface ISchema extends mongoose.Document {
+//     name: string,
+//     age: number
+// }
+// export interface IModel extends mongoose.Model<ISchema>{}
+
+// mongoose.model<ISchema, IModel>("accounts", AccountSchema);
+
 // @ts-ignore
 const dataSchema = new mongoose.Schema({
 // export default interface DataSchema extends mongoose.Model{
@@ -17,4 +27,8 @@ const dataSchema = new mongoose.Schema({
 
 // mongoose.model<DataSchema>("Data", DataSchema);
 
-module.exports = mongoose.model('Data', dataSchema)
+const Model = mongoose.model('Data', dataSchema);
+
+export default Model;
+
+// module.exports = mongoose.model('Data', dataSchema)

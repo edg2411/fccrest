@@ -9,15 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 // const router = express.Router()
+const model_1 = __importDefault(require("../model/model"));
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 // module.exports = router;
 // Post method
 router.post('/post', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // res.send('Post API')
-    const data = new Model({
+    const data = new model_1.default({
         name: req.body.name,
         age: req.body.age
     });
@@ -33,7 +37,7 @@ router.post('/post', (req, res) => __awaiter(void 0, void 0, void 0, function* (
 // Get all method
 router.get('/getAll', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = yield Model.find();
+        const data = yield model_1.default.find();
         res.json(data);
     }
     catch (error) {
@@ -46,7 +50,7 @@ router.get('/getOne/:id', (req, res) => __awaiter(void 0, void 0, void 0, functi
     // res.send('Get by ID API')
     // res.send(req.params.id)
     try {
-        const data = yield Model.findById(req.params.id);
+        const data = yield model_1.default.findById(req.params.id);
         res.json(data);
     }
     catch (error) {
@@ -61,7 +65,7 @@ router.patch('/update/:id', (req, res) => __awaiter(void 0, void 0, void 0, func
         const id = req.params.id;
         const updatedData = req.body;
         const options = { new: true };
-        const result = yield Model.findByIdAndUpdate(id, updatedData, options);
+        const result = yield model_1.default.findByIdAndUpdate(id, updatedData, options);
         res.send(result);
     }
     catch (error) {
@@ -74,7 +78,7 @@ router.delete('/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
     // res.send('Delete by ID API')
     try {
         const id = req.params.id;
-        const data = yield Model.findByIdAndDelete(id);
+        const data = yield model_1.default.findByIdAndDelete(id);
         res.send(`Document with ${data.name} has been deleted..`);
     }
     catch (error) {
@@ -82,7 +86,7 @@ router.delete('/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.status(400).json({ message: error.message });
     }
 }));
-const Model = require('../model/model');
-// import dataSchema from "../model/model";
-// const dataSchema = new DataSchema();
+// const Model = require('../model/model')
+// import { IModel, ISchema, AccountSchema } from "../model/model";
+// const IModell = new AccountSchema
 exports.default = router;

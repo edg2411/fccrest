@@ -5,6 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
+// const AccountSchema = new mongoose.Schema;
+// export interface ISchema extends mongoose.Document {
+//     name: string,
+//     age: number
+// }
+// export interface IModel extends mongoose.Model<ISchema>{}
+// mongoose.model<ISchema, IModel>("accounts", AccountSchema);
 // @ts-ignore
 const dataSchema = new mongoose_1.default.Schema({
     // export default interface DataSchema extends mongoose.Model{
@@ -18,4 +25,6 @@ const dataSchema = new mongoose_1.default.Schema({
     }
 });
 // mongoose.model<DataSchema>("Data", DataSchema);
-module.exports = mongoose_1.default.model('Data', dataSchema);
+const Model = mongoose_1.default.model('Data', dataSchema);
+exports.default = Model;
+// module.exports = mongoose.model('Data', dataSchema)
