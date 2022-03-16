@@ -1,6 +1,10 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
+import mongoose from "mongoose";
+
+// @ts-ignore
 const dataSchema = new mongoose.Schema({
+// export default interface DataSchema extends mongoose.Model{
     name: {
         required: true,
         type: String
@@ -8,7 +12,9 @@ const dataSchema = new mongoose.Schema({
     age: {
         required: true,
         type: Number
-    }
+    }   
 })
+
+// mongoose.model<DataSchema>("Data", DataSchema);
 
 module.exports = mongoose.model('Data', dataSchema)

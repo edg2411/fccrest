@@ -1,10 +1,21 @@
 
-require('dotenv').config();
 
-const express = require('express');
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
+import dotenv from "dotenv";
+
+import express from "express";
+
+// require('dotenv').config();
+
+dotenv.config();
+
+// const express = require('express');
+// const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
 
+
+// @ts-ignore
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
@@ -23,9 +34,11 @@ app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
 })
 
-const routes = require('./routes/routes');
+// const routes = require('./routes/routes');
 
-app.use('/api', routes)
+import  router  from "./routes/routes";
+
+app.use('/api', router)
 
 
 
